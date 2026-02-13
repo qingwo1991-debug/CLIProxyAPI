@@ -1,10 +1,12 @@
 name: docker-image
 
 on:
-  push:
-    tags:
-      - v*
-workflow_dispatch:  # 添加这一行，允许手动触发
+  workflow_dispatch:
+    inputs:
+      version_tag:
+        description: '手动指定版本号 (例如 v1.2.5)'
+        required: false
+        default: ''
 
 env:
   APP_NAME: CLIProxyAPI
